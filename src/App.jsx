@@ -1,4 +1,5 @@
 import PlayerInfo from './components/PlayerInfo.jsx';
+import GameBoard from './components/GameBoard.jsx';
 
 function App() {
   return <main>
@@ -10,6 +11,7 @@ function App() {
       </ol>
 
       {/* GAME BOARD */}
+      <GameBoard></GameBoard>
     </div>
 
     {/* LOG */}
