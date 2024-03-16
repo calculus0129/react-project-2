@@ -1,9 +1,27 @@
-export default function PlayerInfo({name, symbol}) {
-    return <li>
+import { useState } from 'react';
+
+export default function PlayerInfo({ initialName, symbol }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [playerName, setPlayerName] = useState(initialName);
+
+  function handleEditClick() {
+    setIsEditing((editing) => !editing); // Schedules a state update based on the latest available state value.
+  }
+
+  function handleNameChange(hitEvent) {
+    console.log(hitEvent); // This gives interesting result!
+    setPlayerName(hitEvent.target.value);
+  }
+
+  const editablePlayerName = isEditing
+    ? <input type="text" name="" id="" required value={playerName} onChange={handleNameChange}/>
+    : <span className="player-name">{playerName}</span>;
+  const editBtn = <button onClick={handleEditClick}>{isEditing ? 'Save' : 'Edit'}</button>;
+  return <li>
     <span className="player">
-      <span className="player-name">{name}</span>
+      {editablePlayerName}
       <span className="player-symbol">{symbol}</span>
     </span>
-    <button>Edit</button>
+    {editBtn}
   </li>;
 }
