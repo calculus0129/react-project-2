@@ -12,7 +12,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
   playTurn,
 }) => {
   const handleSelectSquare = (row: number, col: number) => () => {
-    console.log(row, col);
     // Play Turn
     playTurn(row, col);
   };
