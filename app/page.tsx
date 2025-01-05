@@ -1,4 +1,5 @@
 import "./page.css";
+import Player from "@/component/Player";
 
 export default function Home() {
   return (
@@ -6,12 +7,10 @@ export default function Home() {
       <div id="game-container">
         <ol id="players">
           <li>
-            <span className="player-name">Player 1</span>
-            <span className="player-symbol">X</span>
+            <Player defaultName="Player 1" symbol="X" />
           </li>
           <li>
-            <span className="player-name">Player 2</span>
-            <span className="player-symbol">O</span>
+            <Player defaultName="Player 2" symbol="O" />
           </li>
         </ol>
         GAME BOARD
