@@ -20,28 +20,7 @@ const eslintConfig = [
       // Prettier integration
       "prettier/prettier": "warn", // Treat Prettier issues as warnings
     },
-    // Overrides for specific file formats
-    overrides: [
-      {
-        files: "*.json", // Applies to all JSON files
-        options: {
-          tabWidth: 2, // Use 2 spaces for JSON
-        },
-      },
-      {
-        files: "*.md", // Applies to all Markdown files
-        options: {
-          tabWidth: 2, // Use 2 spaces for Markdown
-        },
-      },
-      {
-        files: ["*.yml", "*.yaml"], // Applies to YAML files
-        options: {
-          tabWidth: 2, // Use 2 spaces for YAML
-        },
-      },
-    ],
-  },
+  }
 ];
 
 export default eslintConfig;
