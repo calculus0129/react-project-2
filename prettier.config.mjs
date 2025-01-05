@@ -2,7 +2,7 @@ const prettierConfig = {
   semi: true, // Add semicolons at the end of statements
   singleQuote: false, // Use double quotes
   tabWidth: 2, // Indentation is 2 spaces
-  trailingComma: "es5", // Add trailing commas in ES5 syntax (objects, arrays, etc.)
+  trailingComma: "all", // Include trailing commas wherever possible (alt: es5)
   printWidth: 80, // Maximum line width is 80 characters
   useTabs: false, // Use spaces instead of tabs for indentation
   bracketSpacing: true, // Add spaces inside object literal brackets
