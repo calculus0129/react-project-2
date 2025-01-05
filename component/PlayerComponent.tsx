@@ -1,20 +1,23 @@
 "use client";
 
+import Player from "@/data/Player";
 import { useState } from "react";
 
-const Player: React.FC<{ defaultName: string; symbol: string }> = ({
-  defaultName,
-  symbol,
-}) => {
+interface PlayerProps {
+  setName: (name: string) => void;
+  player: Player;
+}
+
+const PlayerComponent: React.FC<PlayerProps> = ({ setName, player }) => {
+  const { name, symbol } = player;
   const [isEditing, setIsEditing] = useState(false);
-  const [name, setName] = useState(defaultName);
+
   const nameComponent = isEditing ? (
     <input
       type="text"
       required
       value={name}
       onChange={(e) => {
-        // console.log(e.target.value);
         setName(e.target.value);
       }}
     />
@@ -39,4 +42,4 @@ const Player: React.FC<{ defaultName: string; symbol: string }> = ({
   );
 };
 
-export default Player;
+export default PlayerComponent;
