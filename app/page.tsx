@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import Player from "@/data/Player";
+import { Player, Turn } from "@/data";
 import PlayerComponent from "@/component/PlayerComponent";
 import Log from "@/component/Log";
 import { useState } from "react";
@@ -13,13 +13,20 @@ export default function Home() {
     new Player("player 2", "O"),
   ]);
 
-  const [gameBoard, setGameBoard] = useState<(number | null)[][]>([
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-  ]);
+  const [turns, setTurns] = useState<Turn[]>([]);
+  const [boardSize, setBoardSize] = useState(3);
 
-  const [curPlayer, setCurPlayer] = useState(0);
+  // boardSize x boardSize array of nulls
+  const gameBoard: (number | null)[][] = Array.from({ length: boardSize }, () =>
+    Array.from({ length: boardSize }, () => null)
+  );
+  turns.forEach((turn, turnNum) => {
+    gameBoard[turn.row][turn.col] = turnNum % players.length;
+  });
+
+  const playTurn = (row: number, col: number) => {
+    setTurns((prevTurns) => [...prevTurns, { row, col }]);
+  };
 
   const setPlayerName = (index: number) => (name: string) => {
     setPlayers((prevPlayers) => {
@@ -32,11 +39,26 @@ export default function Home() {
   return (
     <main>
       <div id="game-container">
+        <div>
+          {/* Board Size Changer */}
+          <label htmlFor="board-size">Board Size: </label>
+          <input
+            type="number"
+            value={boardSize}
+            onChange={(e) => setBoardSize(Number(e.target.value))}
+            min={3}
+            max={10}
+          />
+        </div>
         <ol id="players" className="highlight-player">
           {players.map((player, playerIndex) => (
             <li
               key={playerIndex}
-              className={curPlayer === playerIndex ? "active" : ""}
+              className={
+                turns.length % players.length === playerIndex
+                  ? "active"
+                  : undefined
+              }
             >
               <PlayerComponent
                 player={player}
@@ -49,16 +71,12 @@ export default function Home() {
           <GameBoard
             players={players}
             gameBoard={gameBoard}
-            setGameBoard={setGameBoard}
-            curPlayer={curPlayer}
-            updatePlayer={() => {
-              setCurPlayer((prevPlayer) => (prevPlayer + 1) % players.length);
-            }}
+            playTurn={playTurn}
           />
         </ol>
       </div>
       <ol id="log">
-        <Log />
+        <Log turns={turns} players={players} />
       </ol>
     </main>
   );

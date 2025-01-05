@@ -3,30 +3,18 @@ import Player from "@/data/Player";
 interface GameBoardProps {
   players: Player[];
   gameBoard: (number | null)[][];
-  setGameBoard: (
-    closure: (board: (number | null)[][]) => (number | null)[][]
-  ) => void;
-  curPlayer: number;
-  updatePlayer: () => void;
+  playTurn: (row: number, col: number) => void;
 }
 
 const GameBoard: React.FC<GameBoardProps> = ({
   players,
   gameBoard,
-  setGameBoard,
-  curPlayer,
-  updatePlayer,
+  playTurn,
 }) => {
   const handleSelectSquare = (row: number, col: number) => () => {
-    // Change the Board
-    setGameBoard((prevBoard) => {
-      const newBoard = structuredClone(prevBoard);
-      newBoard[row][col] = curPlayer;
-      console.log(newBoard);
-      return newBoard;
-    });
-    // Change turn of Players
-    updatePlayer();
+    console.log(row, col);
+    // Play Turn
+    playTurn(row, col);
   };
   return (
     <>

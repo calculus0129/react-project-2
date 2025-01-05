@@ -1,8 +1,4 @@
-// import Player from "./Player";
-// export type game = {
-//   n: number;
-//   players: Player[];
-//   board: string[][];
-//   currentPlayer: number;
-//   winner: number;
-// };
+import Turn from "@/data/Turn";
+import Player from "@/data/Player";
+export type { Turn };
+export { Player };
