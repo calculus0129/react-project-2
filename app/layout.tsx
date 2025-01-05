@@ -49,8 +49,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional custom metadata or other elements can be added here */}
+        {/* Place static elements somewhere like here.*/}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header>
+          <img src="/game-logo.png" alt="Game logo" />
+          <h1>Tic-Tac-Toe</h1>
+        </header>
         {children}
       </body>
     </html>
