@@ -9,3 +9,10 @@ coverage
 .config/*
 .env
 *.d.ts
+
+# Ignore README and other documentation files
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE.md
+LICENSE
