@@ -22,7 +22,7 @@ export default function Home() {
   const gameBoard: (number | null)[][] = deriveGameBoard(
     players,
     boardSize,
-    turns
+    turns,
   );
   turns.forEach((turn, turnNum) => {
     gameBoard[turn.row][turn.col] = turnNum % players.length;
@@ -54,7 +54,9 @@ export default function Home() {
           <input
             type="number"
             value={boardSize}
-            onChange={(e) => setBoardSize(Number(e.target.value))}
+            onChange={(e) =>
+              winner === null ? setBoardSize(Number(e.target.value)) : null
+            }
             min={3}
             max={10}
           />
@@ -112,7 +114,7 @@ function deriveWinCombos(boardSize: number) {
 function deriveGameBoard(players: Player[], boardSize: number, turns: Turn[]) {
   // initial board
   const gameBoard: (number | null)[][] = Array.from({ length: boardSize }, () =>
-    Array.from({ length: boardSize }, () => null)
+    Array.from({ length: boardSize }, () => null),
   );
   // apply turns
   turns.forEach((turn, turnNum) => {
@@ -125,7 +127,7 @@ const deriveWinner = (
   gameBoard: (number | null)[][],
   WIN_COMBOS: { row: number; col: number }[][],
   turns: Turn[],
-  boardSize: number
+  boardSize: number,
 ): number | null => {
   let winner = null;
   for (const combo of WIN_COMBOS) {
