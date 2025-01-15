@@ -1,6 +1,6 @@
 # react-project-2
 
-A self-playing tic-tac-toe game made of react. A tic-tak-toe is simply a game of making a bingo before anyone else does at one gameboard. Each mark is characterized by the player who placed it. Each player could mark an unmarked cell of the square gameboard. The first player whose mark makes up a bingo (horizontally, vertically, or diagonally) wins the game. The game is draw if there is no bingo and every cell is marked. Currently (25/01/13-), this supports 3-4 board size. (5-10 sized gameboards are not styled properly yet.)
+A self-playing tic-tac-toe game made of react. A tic-tak-toe is simply a game of making a bingo before anyone else does at one gameboard. Each mark is characterized by the player who placed it. Each player could mark an unmarked cell of the square gameboard. The first player whose mark makes up a bingo (horizontally, vertically, or diagonally) wins the game. The game is draw if there is no bingo and every cell is marked. Currently (25/01/15-), this supports 3-10(arbitrarily set maximum) board size. (Although it works, note that 5-10 sized gameboards 'overflows' the game container.)
 
 ## Getting Started
 

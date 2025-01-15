@@ -164,7 +164,7 @@ ol {
 
 #game-board {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 2rem;
   margin: 3rem 0;
@@ -174,7 +174,7 @@ ol {
 
 #game-board ol {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 2rem;
   margin: 0;

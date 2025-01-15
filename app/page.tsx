@@ -54,9 +54,12 @@ export default function Home() {
           <input
             type="number"
             value={boardSize}
-            onChange={(e) =>
-              winner === null ? setBoardSize(Number(e.target.value)) : null
-            }
+            onChange={(e) => {
+              if (winner === null) {
+                setTurns([]); // Reset the game
+                setBoardSize(Number(e.target.value)); // Change the board size
+              }
+            }}
             min={3}
             max={10}
           />
