@@ -10,10 +10,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 <!-- What things you need to install the software and how to install them -->
 
-- git
-- next.js
+- git (https://git-scm.com/)
+- node.js (https://nodejs.org/en)
 
-Note: For Windows users, it is better if you have and run the next.js installed in your local machine instead of WSL, for developing purposes. Unlike WSL's, this enables real-time reloads in running the development server and editing the programs. (at least in the author's Windows 11 OS.)
+Note: For Windows users, it is better if you have and run the node.js installed in your local machine instead of WSL, for developing purposes. Unlike WSL's, this enables real-time reloads in running the development server and editing the programs. (at least in the author's Windows 11 OS.)
 
 <!-- ```
 Give examples
